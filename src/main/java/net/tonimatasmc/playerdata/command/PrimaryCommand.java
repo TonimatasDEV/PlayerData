@@ -1,8 +1,10 @@
 package net.tonimatasmc.playerdata.command;
 
-import net.tonimatasmc.playerdata.manager.MessageManager;
-import net.tonimatasmc.playerdata.manager.YMLManager;
-import net.tonimatasmc.playerdata.storage.PluginDescription;
+import net.tonimatasmc.playerdata.PlayerData;
+import net.tonimatasmc.playerdata.helper.YMLHelper;
+import net.tonimatasmc.playerdata.util.Information;
+import net.tonimatasmc.playerdata.util.Stats;
+import net.tonimatasmc.playerdata.util.YML.Messages;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -22,23 +24,29 @@ public class PrimaryCommand implements CommandExecutor {
             if (args.length > 0) {
                 if (args[0].equalsIgnoreCase("reload")) {
                     if (Objects.requireNonNull(player).hasPermission("playerdata.reload")) {
-                        YMLManager.reload();
-                        player.sendMessage(PluginDescription.getPrefixPositive() + "The plugin has been reloaded");
+                        PlayerData.getPlugin().reloadConfig();
+                        PlayerData.getPlugin().saveConfig();
+
+                        Messages.reloadMessages();
+                        Messages.saveMessages();
+
+                        Stats.YML(true);
+
+                        player.sendMessage(Information.getPrefixPositive() + "The plugin has been reloaded");
                     } else {
-                        MessageManager.sendNotPermission(player);
+                        player.sendMessage(Information.getPrefixNegative() + YMLHelper.getConfigString(Messages.getMessages(), "WithoutPermission"));
                     }
                 }
 
                 if (args[0].equalsIgnoreCase("version")) {
                     if (Objects.requireNonNull(player).hasPermission("playerdata.version")) {
-                        YMLManager.reload();
-                        player.sendMessage(PluginDescription.getPrefixPositive() + "The plugin version is " + PluginDescription.getVersion());
+                        player.sendMessage(Information.getPrefixPositive() + "The plugin version is " + Information.getVersion());
                     } else {
-                        MessageManager.sendNotPermission(player);
+                        player.sendMessage(Information.getPrefixNegative() + YMLHelper.getConfigString(Messages.getMessages(), "WithoutPermission"));
                     }
                 }
             } else {
-                Objects.requireNonNull(sender).sendMessage(ChatColor.translateAlternateColorCodes('&', PluginDescription.getPrefixWarning() + "Syntax error"));
+                Objects.requireNonNull(sender).sendMessage(ChatColor.translateAlternateColorCodes('&', Information.getPrefixWarning() + "Syntax error"));
             }
 
 

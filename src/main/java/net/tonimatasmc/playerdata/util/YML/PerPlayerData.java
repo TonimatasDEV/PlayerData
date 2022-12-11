@@ -2,7 +2,7 @@ package net.tonimatasmc.playerdata.util.YML;
 
 import net.tonimatasmc.playerdata.PlayerData;
 import net.tonimatasmc.playerdata.util.Paths;
-import net.tonimatasmc.playerdata.util.SetAndGetConfigurations;
+import net.tonimatasmc.playerdata.helper.YMLHelper;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -39,8 +39,8 @@ public class PerPlayerData {
 
     public static void registerData(String playerName) {
         if (!(new File(PlayerData.getPlugin().getDataFolder() + "\\data", playerName + ".yml")).exists()) {
-            SetAndGetConfigurations.setConfig(PerPlayerData.getData(playerName), "BlocksBreakCount.all", 0, Paths.getDataPath(playerName));
-            SetAndGetConfigurations.setConfig(PerPlayerData.getData(playerName), "DeathCount", 0, Paths.getDataPath(playerName));
+            YMLHelper.setConfig(PerPlayerData.getData(playerName), "BlocksBreakCount.all", 0, Paths.getDataPath(playerName));
+            YMLHelper.setConfig(PerPlayerData.getData(playerName), "DeathCount", 0, Paths.getDataPath(playerName));
             saveData(playerName);
         }
     }

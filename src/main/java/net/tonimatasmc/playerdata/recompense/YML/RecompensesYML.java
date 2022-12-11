@@ -1,9 +1,8 @@
 package net.tonimatasmc.playerdata.recompense.YML;
 
 import net.tonimatasmc.playerdata.PlayerData;
-import net.tonimatasmc.playerdata.storage.Paths;
-import net.tonimatasmc.playerdata.storage.YML.PerPlayerData;
-import net.tonimatasmc.playerdata.util.SetAndGetConfigurations;
+import net.tonimatasmc.playerdata.util.Paths;
+import net.tonimatasmc.playerdata.helper.YMLHelper;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -40,12 +39,12 @@ public class RecompensesYML {
 
     public static void registerStatRecompensesYML(String recompensesYML) {
         if (!(new File(PlayerData.getPlugin().getDataFolder() + "\\recompenses", recompensesYML + ".yml")).exists()) {
-            SetAndGetConfigurations.setConfig(RecompensesYML.getStatRecompensesYML(recompensesYML),"enabled" , true, Paths.getRecompensesPath(recompensesYML));
-            SetAndGetConfigurations.setConfig(RecompensesYML.getStatRecompensesYML(recompensesYML),"recompenses.1000.command" , "give %player% minecraft:diamond_sword", Paths.getRecompensesPath(recompensesYML));
-            SetAndGetConfigurations.setConfig(RecompensesYML.getStatRecompensesYML(recompensesYML),"recompenses.1000.sound" , "entity.firework_rocket.large_blast", Paths.getRecompensesPath(recompensesYML));
-            SetAndGetConfigurations.setConfig(RecompensesYML.getStatRecompensesYML(recompensesYML),"recompenses.1000.permission" , "example", Paths.getRecompensesPath(recompensesYML));
-            SetAndGetConfigurations.setConfig(RecompensesYML.getStatRecompensesYML(recompensesYML),"recompenses.1000.command" , "give %player% minecraft:diamond_sword", Paths.getRecompensesPath(recompensesYML));
-            SetAndGetConfigurations.setConfig(RecompensesYML.getStatRecompensesYML(recompensesYML),"recompenses.1000.command" , "give %player% minecraft:diamond_sword", Paths.getRecompensesPath(recompensesYML));
+            YMLHelper.setConfig(RecompensesYML.getStatRecompensesYML(recompensesYML),"enabled" , true, Paths.getRecompensesPath(recompensesYML));
+            YMLHelper.setConfig(RecompensesYML.getStatRecompensesYML(recompensesYML),"recompenses.1000.command" , "give %player% minecraft:diamond_sword", Paths.getRecompensesPath(recompensesYML));
+            YMLHelper.setConfig(RecompensesYML.getStatRecompensesYML(recompensesYML),"recompenses.1000.sound" , "entity.firework_rocket.large_blast", Paths.getRecompensesPath(recompensesYML));
+            YMLHelper.setConfig(RecompensesYML.getStatRecompensesYML(recompensesYML),"recompenses.1000.permission" , "example", Paths.getRecompensesPath(recompensesYML));
+            YMLHelper.setConfig(RecompensesYML.getStatRecompensesYML(recompensesYML),"recompenses.1000.command" , "give %player% minecraft:diamond_sword", Paths.getRecompensesPath(recompensesYML));
+            YMLHelper.setConfig(RecompensesYML.getStatRecompensesYML(recompensesYML),"recompenses.1000.command" , "give %player% minecraft:diamond_sword", Paths.getRecompensesPath(recompensesYML));
             saveStatRecompensesYML(recompensesYML);
         }
     }

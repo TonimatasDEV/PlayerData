@@ -1,4 +1,4 @@
-package net.tonimatasmc.playerdata.util;
+package net.tonimatasmc.playerdata.helper;
 
 import org.bukkit.Color;
 import org.bukkit.configuration.Configuration;
@@ -12,7 +12,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-public class SetAndGetConfigurations {
+@SuppressWarnings("unused")
+public class YMLHelper {
     public static String getConfigString(FileConfiguration yml, String configSection) {
         return yml.getString(configSection);
     }

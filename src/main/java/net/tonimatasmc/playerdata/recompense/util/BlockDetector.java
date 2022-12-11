@@ -1,13 +1,14 @@
-package net.tonimatasmc.playerdata.recompense;
+package net.tonimatasmc.playerdata.recompense.util;
 
+import net.tonimatasmc.playerdata.recompense.Executor;
 import net.tonimatasmc.playerdata.recompense.YML.RecompensesYML;
-import net.tonimatasmc.playerdata.storage.YML.PerPlayerData;
+import net.tonimatasmc.playerdata.util.YML.PerPlayerData;
 import net.tonimatasmc.playerdata.util.SetAndGetConfigurations;
 import org.bukkit.entity.Player;
 
 import java.util.List;
 
-public class Detector {
+public class BlockDetector {
     public static void normal(String stat, Player player) {
         if (SetAndGetConfigurations.getConfigBoolean(RecompensesYML.getStatRecompensesYML(stat), "enabled")) {
             List<String> recompenses = SetAndGetConfigurations.getConfigStringList(RecompensesYML.getStatRecompensesYML(stat), "recompenses");

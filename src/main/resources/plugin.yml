@@ -1,0 +1,24 @@
+name: PlayerData
+version: 0.0.0.1
+main: net.tonimatasmc.playerdata.PlayerData
+api-version: 1.13
+load: STARTUP
+authors: [ TonimatasMC ]
+description: Save all of player data.
+
+commands:
+  playerdata:
+    description: Primary command.
+
+permissions:
+  playerdata.all:
+    description: Permission for give all permissions of PlayerData.
+    children:
+      - playerdata.reload
+      - playerdata.version
+
+  playerdata.reload:
+    description: Permission for reload the plugin.
+
+  playerdata.version:
+    description: Permission for show the plugin version.

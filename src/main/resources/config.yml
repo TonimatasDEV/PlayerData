@@ -1,0 +1,33 @@
+Stats:
+  BlocksBreakCount:
+    enabled: true
+    recompenses:
+      1000:
+        command: 'give %player% minecraft:diamond_sword'
+        sound: 'entity.firework_rocket.large_blast'
+        message:
+          - '- - - - - - - - - Recompense - - - - - - - - -'
+          - 'You have completed 1k mined blocks'
+          - '- - - - - - - - - Recompense - - - - - - - - -'
+        broadcast:
+            - '- - - - - - - - - Recompense - - - - - - - - -'
+            - '%player%  has completed 1k mined blocks'
+            - '- - - - - - - - - Recompense - - - - - - - - -'
+        permission: 'example'
+
+  DeathCount:
+    enabled: true
+    recompenses:
+      1000:
+        command: 'give %player% minecraft:diamond_sword'
+        sound: 'entity.firework_rocket.large_blast'
+        message:
+          - '- - - - - - - - - Recompense - - - - - - - - -'
+          - 'You have completed 1k mined blocks'
+          - '- - - - - - - - - Recompense - - - - - - - - -'
+        broadcast:
+          - '- - - - - - - - - Recompense - - - - - - - - -'
+          - '%player%  has completed 1k mined blocks'
+          - '- - - - - - - - - Recompense - - - - - - - - -'
+        permission: 'example'
+

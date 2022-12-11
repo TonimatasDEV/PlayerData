@@ -7,7 +7,7 @@ import net.tonimatasmc.playerdata.util.YML.PerPlayerData;
 import org.bukkit.entity.Player;
 
 public class RecompenseBuilder {
-    public static void add(Player player, String stat) {
+    public static void addSimple(Player player, String stat) {
         int count = YMLHelper.getConfigInt(PerPlayerData.getData(player.getName()), stat);
         YMLHelper.setConfig(PerPlayerData.getData(player.getName()), stat, count + 1, Paths.getDataPath(player.getName()));
 

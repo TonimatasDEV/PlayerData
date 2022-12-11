@@ -8,6 +8,8 @@ import net.tonimatasmc.playerdata.util.YML.PerPlayerData;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 public class StatEvent implements Listener {
     @EventHandler
@@ -26,7 +28,17 @@ public class StatEvent implements Listener {
     }
 
     @EventHandler
-    public void onDeath(PlayerDeathEvent event) {
-        RecompenseBuilder.add(event.getEntity(), "DeathCount");
+    public void onPlayerDeath(PlayerDeathEvent event) {
+        RecompenseBuilder.addSimple(event.getEntity(), "DeathCount");
+    }
+
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent event) {
+        RecompenseBuilder.addSimple(event.getPlayer(), "ServerJoinCount");
+    }
+
+    @EventHandler
+    public void onPlayerQuit(PlayerQuitEvent event) {
+        RecompenseBuilder.addSimple(event.getPlayer(), "ServerQuitCount");
     }
 }

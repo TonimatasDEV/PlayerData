@@ -11,6 +11,8 @@ public class Stats {
     public static void register() {
         stats.add("BlocksBreakCount");
         stats.add("DeathCount");
+        stats.add("ServerJoinCount");
+        stats.add("ServerQuitCount");
     }
 
     public static List<String> getStats() {

@@ -1,4 +1,4 @@
-package net.tonimatasmc.playerdata.storage.YML;
+package net.tonimatasmc.playerdata.util.YML;
 
 import net.tonimatasmc.playerdata.PlayerData;
 

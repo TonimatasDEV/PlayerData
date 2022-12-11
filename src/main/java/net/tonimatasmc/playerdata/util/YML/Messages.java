@@ -1,4 +1,4 @@
-package net.tonimatasmc.playerdata.storage.YML;
+package net.tonimatasmc.playerdata.util.YML;
 
 import net.tonimatasmc.playerdata.PlayerData;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -18,7 +18,9 @@ public class Messages {
     public static FileConfiguration getMessages() {
         if (messages == null) {
             reloadMessages();
-        }return messages;
+        }
+
+        return messages;
     }
 
     public static void reloadMessages() {

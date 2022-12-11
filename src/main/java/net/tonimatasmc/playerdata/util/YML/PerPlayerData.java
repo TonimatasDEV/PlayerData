@@ -1,7 +1,7 @@
-package net.tonimatasmc.playerdata.storage.YML;
+package net.tonimatasmc.playerdata.util.YML;
 
 import net.tonimatasmc.playerdata.PlayerData;
-import net.tonimatasmc.playerdata.storage.Paths;
+import net.tonimatasmc.playerdata.util.Paths;
 import net.tonimatasmc.playerdata.util.SetAndGetConfigurations;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;

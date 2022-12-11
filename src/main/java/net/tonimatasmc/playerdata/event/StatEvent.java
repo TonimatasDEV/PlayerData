@@ -1,13 +1,15 @@
 package net.tonimatasmc.playerdata.event;
 
-import net.tonimatasmc.playerdata.recompense.Detector;
-import net.tonimatasmc.playerdata.storage.Paths;
-import net.tonimatasmc.playerdata.storage.YML.PerPlayerData;
+import net.tonimatasmc.playerdata.recompense.util.BlockDetector;
+import net.tonimatasmc.playerdata.recompense.RecompenseBuilder;
+import net.tonimatasmc.playerdata.util.Paths;
 import net.tonimatasmc.playerdata.util.SetAndGetConfigurations;
+import net.tonimatasmc.playerdata.util.YML.PerPlayerData;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
 
-public class BlockBreakEvent implements Listener {
+public class StatEvent implements Listener {
     @EventHandler
     public void onBlockBreak(org.bukkit.event.block.BlockBreakEvent event) {
         int count = SetAndGetConfigurations.getConfigInt(PerPlayerData.getData(event.getPlayer().getName()),"BlocksBreakCount.all");
@@ -20,6 +22,11 @@ public class BlockBreakEvent implements Listener {
             SetAndGetConfigurations.setConfig(PerPlayerData.getData(event.getPlayer().getName()), "BlocksBreakCount." + event.getBlock().getType(), 1, Paths.getDataPath(event.getPlayer().getName()));
         }
 
-        Detector.normal("BlocksBreakCount", event.getPlayer());
+        BlockDetector.normal("BlocksBreakCount", event.getPlayer());
+    }
+
+    @EventHandler
+    public void onDeath(PlayerDeathEvent event) {
+        RecompenseBuilder.add(event.getEntity(), "DeathCount");
     }
 }

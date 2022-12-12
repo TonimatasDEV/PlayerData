@@ -1,9 +1,9 @@
 name: PlayerData
 version: 0.0.0.1
-main: net.tonimatasmc.playerdata.PlayerData
+main: net.tonimatasdev.playerdata.PlayerData
 api-version: 1.13
 load: STARTUP
-authors: [ TonimatasMC ]
+authors: [ TonimatasDEV ]
 description: Save all of player data.
 
 commands:

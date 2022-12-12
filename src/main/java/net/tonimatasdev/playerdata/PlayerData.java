@@ -9,7 +9,6 @@ import net.tonimatasdev.playerdata.util.Stats;
 import net.tonimatasdev.playerdata.util.YML.Config;
 import net.tonimatasdev.playerdata.util.YML.Messages;
 import org.bukkit.Bukkit;
-import org.bukkit.Server;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -19,7 +18,6 @@ public final class PlayerData extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        Server server = PlayerData.getPlugin().getServer();
         plugin = this;
 
         File data = new File(PlayerData.getPlugin().getDataFolder() + "\\data");
@@ -35,11 +33,11 @@ public final class PlayerData extends JavaPlugin {
         Messages.registerMessages();
         Stats.YML(false);
 
-        server.getPluginManager().registerEvents(new ServerJoinEvent(), this);
-        server.getPluginManager().registerEvents(new StatEvent(), this);
+        PlayerData.getPlugin().getServer().getPluginManager().registerEvents(new ServerJoinEvent(), this);
+        PlayerData.getPlugin().getServer().getPluginManager().registerEvents(new StatEvent(), this);
 
-        server.getPluginCommand("playerdata").setExecutor(new PrimaryCommand());
-        server.getPluginCommand("playerdata").setTabCompleter(new TabulatorCompleter());
+        PlayerData.getPlugin().getServer().getPluginCommand("playerdata").setExecutor(new PrimaryCommand());
+        PlayerData.getPlugin().getServer().getPluginCommand("playerdata").setTabCompleter(new TabulatorCompleter());
 
         Bukkit.getConsoleSender().sendMessage("- - - - - - - - - - - - - - - - - - - - - - - -");
         Bukkit.getConsoleSender().sendMessage(Information.getPrefixPositive() + "The plugin has been enabled");

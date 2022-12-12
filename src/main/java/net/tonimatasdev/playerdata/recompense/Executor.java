@@ -3,7 +3,6 @@ package net.tonimatasdev.playerdata.recompense;
 import net.tonimatasdev.playerdata.helper.YMLHelper;
 import net.tonimatasdev.playerdata.recompense.YML.RecompensesYML;
 import net.tonimatasdev.playerdata.recompense.actions.*;
-import net.tonimatasmc.playerdata.recompense.actions.*;
 import org.bukkit.entity.Player;
 
 import java.util.List;
